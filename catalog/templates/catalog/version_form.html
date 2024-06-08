@@ -1,0 +1,23 @@
+{% extends 'catalog/base.html' %}
+{% block content %}
+<div class="col-6">
+    <div class="card mb-4 box-shadow">
+        <div class="card-header">
+           {% if not object %}
+            <h4 class="my-0  mb-4 font-weight-normal">Добавление версии товара</h4>
+            {% endif %}
+            {% if object %}
+            <h4 class="my-0  mb-4 font-weight-normal">Редактирование версии товара</h4>
+            {% endif %}
+        </div>
+
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary w-50" >Сохранить</button>
+        </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

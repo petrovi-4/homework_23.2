@@ -1,0 +1,15 @@
+{% block content %}
+<div class="col-3"></div>
+<div class="col-6">
+    <div class="card-body">
+        {% if success %}
+            <h1>Поздравляем! Вы успешно подтвердили свою регистрацию.</h1>
+            <a href="{% url 'users:login' %}" class="btn btn-lg btn-block btn-outline-primary" role="button">Войти</a>
+        {% else %}
+            <h1>Ошибка верификации.</h1>
+            <p>Неверный токен. Пожалуйста, проверьте вашу ссылку или повторите регистрацию.</p>
+            <a href="{% url 'users:register' %}" class="btn btn-lg btn-block btn-outline-primary" role="button">Зарегистрироваться</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

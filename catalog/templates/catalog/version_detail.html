@@ -1,0 +1,27 @@
+{% extends 'catalog/base.html' %}
+{% load my_tags %}
+{% block content %}
+<div class="col">
+    <h4 class="mb-4 text-center">Информация о версии товара</h4>
+    <div class="card mb-4 box-shadow">
+        <div class="card-header">
+            <h4 class="my-0  mb-4 font-weight-normal">{{object.product}}</h4>
+        </div>
+
+        <div class="card-body">
+            <ul class="list-unstyled mt-3 mb-4 text-start m-3">
+                <li>Номер версии: {{object.number}}</li>
+
+            </ul>
+            <ul class="list-unstyled mt-3 mb-4 text-start m-3">
+                <li>Название версии: {{object.name}}</li>
+
+            </ul>
+            <ul class="list-unstyled mt-3 mb-4 text-start m-3">
+                <li>Активная версия {{object.is_active}}</li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

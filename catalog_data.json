@@ -1,0 +1,83 @@
+[
+{
+  "model": "catalog.category",
+  "pk": 5,
+  "fields": {
+    "category_name": "Телефоны",
+    "description": "В данной категории представлены лучшие телефоны и смартфоны, которые вы можете найти за деньги!"
+  }
+},
+{
+  "model": "catalog.category",
+  "pk": 6,
+  "fields": {
+    "category_name": "Мониторы",
+    "description": "Категория для любителей топовых мониторов на рынке"
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 11,
+  "fields": {
+    "product_name": "iPhone 16 Pro",
+    "description": "Новый яТелефон",
+    "image": "",
+    "category": 5,
+    "price": "300000.00",
+    "date_create": "2024-04-18",
+    "last_modified_date": "2024-04-18"
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 12,
+  "fields": {
+    "product_name": "iPhone 15 Pro",
+    "description": "Текущий яТелефон",
+    "image": "",
+    "category": 5,
+    "price": "200000.00",
+    "date_create": "2024-04-18",
+    "last_modified_date": "2024-04-18"
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 13,
+  "fields": {
+    "product_name": "iPhone 14 Pro",
+    "description": "Старый яТелефон",
+    "image": "",
+    "category": 5,
+    "price": "150000.00",
+    "date_create": "2024-04-18",
+    "last_modified_date": "2024-04-18"
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 14,
+  "fields": {
+    "product_name": "Samsung G9",
+    "description": "Широкий монитор",
+    "image": "",
+    "category": 6,
+    "price": "250000.00",
+    "date_create": "2024-04-18",
+    "last_modified_date": "2024-04-18"
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 15,
+  "fields": {
+    "product_name": "Thunderobot LQ27F240L",
+    "description": "2к монитор",
+    "image": "",
+    "category": 6,
+    "price": "50000.00",
+    "date_create": "2024-04-18",
+    "last_modified_date": "2024-04-18"
+  }
+}
+]

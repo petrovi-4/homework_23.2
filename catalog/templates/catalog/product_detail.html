@@ -1,0 +1,50 @@
+{% extends 'catalog/base.html' %}
+{% load my_tags %}
+{% block content %}
+<div class="col">
+    <h4 class="mb-4 text-center">Информация о товаре</h4>
+    <div class="card mb-4 box-shadow">
+        <div class="card-header">
+            <h4 class="my-0 mb-4 font-weight-normal">{{ object.product_name }}</h4>
+            <img src="{% mediafile object.image %}" alt="" style="max-width: 50%;">
+        </div>
+        <div class="card-body">
+            <h1 class="card-title pricing-card-title">{{ object.price }}</h1>
+            <ul class="list-unstyled mt-3 mb-4 text-start m-3">
+                <li>Описание: {{ object.description }}</li>
+                <li>Категория: {{ object.category }}</li>
+                <li>Статус: {{ object.is_published|yesno:"Опубликован,Не опубликован" }}</li>
+                <li>Последнее изменение: {{ object.last_modified_date }}</li>
+                {% if version %}
+                    <li>Активная версия: {{ version }}</li>
+                {% endif %}
+            </ul>
+            {% if user.is_authenticated %}
+                {% if perms.catalog.can_edit_category and perms.catalog.can_edit_description or user == product.owner %}
+                        <a class="btn btn-outline-primary" href="{% url 'catalog:edit_product' object.pk %}" role="button">Редактировать</a>
+                    {% endif %}
+                {% if user == object.owner or perms.catalog.change_product %}
+                    <div class="mb-2">
+                        <a class="btn btn-outline-primary" href="{% url 'catalog:delete_product' object.pk %}" role="button">Удалить</a>
+                    </div>
+                    <div class="mb-2">
+                        <a class="btn btn-outline-primary" href="{% url 'catalog:version_create' %}" role="button">Добавить версию</a>
+                        {% if version %}
+                            <a class="btn btn-outline-primary" href="{% url 'catalog:edit_version' version.pk %}" role="button">Изменить активную версию</a>
+                            <a class="btn btn-outline-primary" href="{% url 'catalog:delete_version' version.pk %}" role="button">Удалить активную версию</a>
+                        {% endif %}
+                    </div>
+                {% endif %}
+                {% if perms.catalog.can_canceled_publication %}
+                    <div class="mb-2">
+                        <a class="btn btn-outline-primary" href="{% url 'catalog:toggle_publish_product' object.pk %}" role="button">
+                            {% if object.is_published %}Отменить публикацию{% else %}Опубликовать{% endif %}
+                        </a>
+                    </div>
+                {% endif %}
+            {% endif %}
+            <button type="button" class="btn btn-lg btn-block btn-outline-primary">Купить</button>
+        </div>
+    </div>
+</div>
+{% endblock %}

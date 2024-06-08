@@ -1,0 +1,33 @@
+{% extends 'catalog/base.html' %}
+
+{% block content %}
+<div class="col-4">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="mb-3 text-center">Наши контакты</h5>
+            Адрес: <br>
+            Москва <br>
+            Телефон: <br>
+            8 495 555 16 61 <br>
+            Для звонков по России: <br>
+            8 800 555 16 61 <br>
+            Электронная почта: <br>
+            sale@skyshop.ru <br>
+        </div>
+    </div>
+</div>
+<div class="col-4">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="mb-3 text-center">Обратная связь</h5>
+            <form method="post">
+                {% csrf_token %}
+                <input name="name" class="form-control mb-2" placeholder="Имя" type="text">
+                <input name="email" class="form-control mb-2" placeholder="Email" type="email">
+                <textarea name="message" class="form-control mb-2" placeholder="Ваше сообщение"></textarea>
+                <input class="btn btn-primary w-100" type="submit" value="Отправить" />
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'catalog/base.html' %}
+{% load my_tags %}
+{% block content %}
+    <div class="col">
+        <div class="card mb-4 box-shadow">
+            <div class="card-header">
+                <img src="{{ object.preview_image | media_url }}" alt="" style="max-width: 75%;">
+            </div>
+
+            <div class="card-body">
+                <ul class="list-unstyled mt-3 mb-4 text-start m-3">
+                    <li>Описание: {{ object.content }}</li>
+
+                </ul>
+                <ul class="list-unstyled mt-3 mb-4 text-start m-3">
+                    <li>Дата публикации: {{ object.created_at }}</li>
+
+                </ul>
+                <ul class="list-unstyled mt-3 mb-4 text-start m-3">
+                    <li> Количество просмотров: {{ object.views_count }}</li>
+
+                </ul>
+
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
